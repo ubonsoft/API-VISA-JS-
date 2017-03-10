@@ -1,0 +1,22 @@
+ <script type="text/javascript">
+  function onVisaCheckoutReady(){
+  V.init({ 
+                apikey: "K0DU9056WF2PMA674RYN219gT_IUxH-DfoseWRiSU-CaeZGFw",
+                paymentRequest:{
+                    currencyCode: "USD",
+                    total: "100",
+                    discount: "25",
+                    displayName : "ทดสอบระบบ"
+                }
+  });
+    V.on("payment.success", function(payment)
+      {alert(JSON.stringify(payment)); });
+    V.on("payment.cancel", function(payment)
+      {alert(JSON.stringify(payment)); });
+    V.on("payment.error", function(payment, error)
+      {alert(JSON.stringify(error)); });
+}
+</script>
+
+    <img alt="Visa Checkout" class="v-button" role="button" src="https://developer.visa.com/images2/products/visa_checkout/vco_cardart.png"/>
+    <script type="text/javascript" src="<?php echo dirname($_SERVER['PHP_SELF']) . '/wp-content/themes/'.wp_get_theme().'/js/visa-sdk.js'; ?>"></script>
